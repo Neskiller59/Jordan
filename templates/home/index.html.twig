@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-5 fs-1">Jordamn ! Encore une paire iconique.</h1>
+
+    <div class="container text-center my-5">
+        <img src="{{ asset('images/home/jordanHome.jpg') }}" 
+             alt="Jordan Bardella" class="img-fluid rounded shadow mb-3" style="max-width: 300px;">
+    </div>
+      <div class="p-4 bg-dark text-white rounded shadow text-center">
+        <h2 class="mb-4">Bienvenue !</h2>
+        <p class="fs-5">
+            Sur le site du plus beau et charismatique <strong>Jordan</strong>, admire à quel point il est mystérieux, 
+            un modèle vivant et <strong>SURTOUT JEUNE</strong> !
+        </p>
+        <p class="fs-5">
+            En attendant que le monde comprenne qu'il est le seul à pouvoir sauver notre nation — parce qu’il est 
+            <strong>JEUNE</strong> et <strong>BEAU</strong> — offre-toi un <span class="text-danger">T-shirt</span> et des <span class="text-danger">baskets</span> de marque <strong>J-B</strong> !
+        </p>
+        <p class="mt-4 text-warning fw-bold">
+            ⚠️ ATTENTION : Le site ne vend ni jellaba ni babouche !
+        </p>
+    </div>
+{% endblock %}
