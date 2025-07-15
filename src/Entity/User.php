@@ -138,7 +138,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function addModel(model $model): static
     {
         if (!$this->model->contains($model)) {
-            $this->model->add($model);
+            $this->model[] = $model;
             $model->setProduct($this);
         }
 
