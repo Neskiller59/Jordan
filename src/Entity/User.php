@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Entity\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -36,9 +37,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     /**
-     * @var Collection<int, model>
+     * @var Collection<int, Model>
      */
-    #[ORM\OneToMany(targetEntity: model::class, mappedBy: 'product')]
+    #[ORM\OneToMany(targetEntity: Model::class, mappedBy: 'product')]
     private Collection $model;
 
     public function __construct()
@@ -63,31 +64,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
 
-    /**
-     * @param list<string> $roles
-     */
     public function setRoles(array $roles): static
     {
         $this->roles = $roles;
@@ -95,9 +84,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
     public function getPassword(): ?string
     {
         return $this->password;
@@ -110,9 +96,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
-     */
     public function __serialize(): array
     {
         $data = (array) $this;
@@ -124,18 +107,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[\Deprecated]
     public function eraseCredentials(): void
     {
-        // @deprecated, to be removed when upgrading to Symfony 8
+        // Deprecated, to be removed in Symfony 8
     }
 
     /**
-     * @return Collection<int, model>
+     * @return Collection<int, Model>
      */
     public function getModel(): Collection
     {
         return $this->model;
     }
 
-    public function addModel(model $model): static
+    public function addModel(Model $model): static
     {
         if (!$this->model->contains($model)) {
             $this->model[] = $model;
@@ -145,10 +128,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeModel(model $model): static
+    public function removeModel(Model $model): static
     {
         if ($this->model->removeElement($model)) {
-            // set the owning side to null (unless already changed)
             if ($model->getProduct() === $this) {
                 $model->setProduct(null);
             }

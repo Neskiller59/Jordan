@@ -28,7 +28,7 @@ class Model
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     #[Assert\NotBlank(message: "Le prix est requis.")]
     #[Assert\PositiveOrZero(message: "Le prix ne peut pas être négatif.")]
-    private ?float $prix = null;
+    private ?string $prix = null;
 
     #[ORM\ManyToOne(inversedBy: 'model')]
     private ?User $product = null;
@@ -60,12 +60,12 @@ class Model
         return $this;
     }
 
-    public function getPrix(): ?float
+    public function getPrix(): ?string
     {
         return $this->prix;
     }
 
-    public function setPrix(float $prix): static
+    public function setPrix(string $prix): static
     {
         $this->prix = $prix;
         return $this;

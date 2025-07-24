@@ -1,3 +1,85 @@
 body {
-    background-color:#DC143C;
+    background-color: #DC143C;
+}
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #fefefe, #eaeaea);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    object-fit: cover;
+    height: 220px;
+}
+
+.card-body {
+    padding: 1.5rem 1.25rem;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+}
+
+.card h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #b4975a;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 3rem;
+}
+
+.btn-luxe {
+    background-color: #b08d57;
+    border: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-luxe:hover {
+    background-color: #a37f4b;
+    transform: scale(1.05);
+}
+
+.card-img-top.d-flex {
+    font-style: italic;
+    font-size: 1rem;
+    color: #999;
+    background: #f1f1f1;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .card-img-top {
+        height: 180px;
+    }
 }

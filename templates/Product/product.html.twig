@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarsController!{% endblock %}
+{% block title %}Collection Jordan{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{% endblock %}
 
 {% block body %}
 <h1 class="text-center fs-1 mt-3">Tes pieds méritent l’histoire. Jordan les y mène</h1>
@@ -16,13 +22,14 @@
                         <img src="{{ asset('images/product/' ~ model.image) }}" class="card-img-top" alt="Image de {{ model.name }}">
                     {% endif %}
                 {% else %}
-                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height:180px; background:#eee; color:#888;">
+                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height:220px;">
                         Image non disponible
                     </div>
                 {% endif %}
                 <div class="card-body text-center">
                     <h2 class="card-title">{{ model.name }}</h2>
-                    <h5>Prix : {{ model.prix }} €</h5>
+                    <h5>Prix : {{ model.prix|number_format(2, ',', ' ') }} €</h5>
+                    <a href="{{ path('ajouter_au_panier', { id: model.id }) }}" class="btn btn-luxe mt-3">Ajouter au panier</a>
                 </div>
             </div>
         </div>

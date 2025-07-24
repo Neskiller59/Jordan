@@ -24,7 +24,8 @@ class ModelCrudController extends AbstractCrudController
                 ->setUploadDir('public/images/product')
                 ->setUploadedFileNamePattern('[randomhash].[extension]') 
                 ->setRequired(false),
-            MoneyField::new('prix', 'Prix')->setCurrency('EUR'),
+            MoneyField::new('prix', 'Prix')->setCurrency('EUR')
+            ->setStoredAsCents(false),
 
         ];
     }

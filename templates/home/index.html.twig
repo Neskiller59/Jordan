@@ -7,9 +7,13 @@
 
     <div class="container text-center my-5">
         <img src="{{ asset('images/home/jordanHome.jpg') }}" 
-             alt="Jordan Bardella" class="img-fluid rounded shadow mb-3" style="max-width: 300px;">
+             alt="Jordan Bardella" 
+             class="img-fluid rounded shadow mb-3" 
+             style="max-width: 300px;"
+             loading="lazy">
     </div>
-      <div class="p-4 bg-dark text-white rounded shadow text-center">
+
+    <div class="p-4 bg-dark text-white rounded shadow text-center" role="main" aria-label="Bienvenue sur le site Jordan">
         <h2 class="mb-4">Bienvenue !</h2>
         <p class="fs-5">
             Sur le site du plus beau et charismatique <strong>Jordan</strong>, admire à quel point il est mystérieux, 
@@ -22,5 +26,11 @@
         <p class="mt-4 text-warning fw-bold">
             ⚠️ ATTENTION : Le site ne vend ni jellaba ni babouche !
         </p>
+
+        <div class="mt-4">
+            <a href="{{ path('product_list') }}" class="btn btn-danger btn-lg">
+                Découvrir les produits Jordan
+            </a>
+        </div>
     </div>
 {% endblock %}
